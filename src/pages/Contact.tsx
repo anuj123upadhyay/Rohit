@@ -1,19 +1,14 @@
 import { useState, FormEvent } from "react";
 import {
-  FaLinkedin,
-  FaTwitter,
-  FaInstagram,
-  FaMapMarkerAlt,
-  FaFacebook,
-  FaEnvelope,
+  FaLinkedin, FaTwitter, FaInstagram, FaMapMarkerAlt, FaFacebook, FaEnvelope,
 } from "react-icons/fa";
 import { databases } from "../appwrite/appwriteConfig";
 import { ID } from "appwrite";
 import conf from "../config/conf";
 import { useNewsletter } from "../hooks/useNewsletter";
 import { toast } from "react-hot-toast";
-
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 
 interface ContactForm {
   name: string;
@@ -22,13 +17,16 @@ interface ContactForm {
   message: string;
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
 function Contact() {
-  const [formData, setFormData] = useState<ContactForm>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<ContactForm>({ name: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -36,318 +34,176 @@ function Contact() {
   const [newsletterSuccess, setNewsletterSuccess] = useState(false);
   const [newsletterError, setNewsletterError] = useState<string | null>(null);
   const { isSubscribing, subscribe } = useNewsletter();
-  const validateEmail = (email: string): boolean => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+
+  const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
     try {
-      if (
-        !formData.name ||
-        !formData.email ||
-        !formData.subject ||
-        !formData.message
-      ) {
-        throw new Error("All fields are required");
-      }
-
-      if (!validateEmail(formData.email)) {
-        throw new Error("Please enter a valid email address");
-      }
-
-      await databases.createDocument(
-        conf.appwriteDatabaseId,
-        conf.appwriteContactCollection,
-        ID.unique(),
-        {
-          ...formData,
-          status: "new",
-        }
-      );
-
+      if (!formData.name || !formData.email || !formData.subject || !formData.message) throw new Error("All fields are required");
+      if (!validateEmail(formData.email)) throw new Error("Please enter a valid email address");
+      await databases.createDocument(conf.appwriteDatabaseId, conf.appwriteContactCollection, ID.unique(), { ...formData, status: "new" });
       setSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to send message");
-      // console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
-  // const handleNewsletterSubmit = async (e: FormEvent) => {
-  //   e.preventDefault();
-  //   setNewsletterError(null);
-
-  //   try {
-  //     if (!validateEmail(newsletterEmail)) {
-  //       throw new Error('Please enter a valid email address');
-  //     }
-
-  //     // Add your newsletter subscription logic here
-
-  //     setNewsletterSuccess(true);
-  //     setNewsletterEmail('');
-  //   } catch (err) {
-  //     setNewsletterError(err instanceof Error ? err.message : 'Failed to subscribe');
-  //     console.error(err);
-  //   }
-  // };
-
   const handleNewsletterSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setNewsletterError(null);
-
     try {
-      if (!validateEmail(newsletterEmail)) {
-        toast.error("Please enter a valid email address");
-        return;
-      }
-
+      if (!validateEmail(newsletterEmail)) { toast.error("Please enter a valid email address"); return; }
       const success = await subscribe(newsletterEmail);
-      if (success) {
-        setNewsletterSuccess(true);
-        setNewsletterEmail("");
-        toast.success("Successfully subscribed to newsletter!");
-      }
+      if (success) { setNewsletterSuccess(true); setNewsletterEmail(""); toast.success("Successfully subscribed!"); }
     } catch (err) {
-      setNewsletterError(
-        err instanceof Error ? err.message : "Failed to subscribe"
-      );
-      toast.error("Failed to subscribe to newsletter");
-      // console.error(err);
+      setNewsletterError(err instanceof Error ? err.message : "Failed to subscribe");
+      toast.error("Failed to subscribe");
     }
   };
+
   return (
     <>
       <Helmet>
         <title>Contact - Rohit Upadhyay</title>
-        <meta
-          name="description"
-          content="Get in touch with Rohit Upadhyay. Send a message, subscribe to newsletter, or connect on social media."
-        />
-        <meta
-          name="keywords"
-          content="contact, rohit upadhyay, author contact, newsletter, social media"
-        />
+        <meta name="description" content="Get in touch with Rohit Upadhyay." />
         <meta property="og:title" content="Contact - Rohit Upadhyay" />
-        <meta
-          property="og:description"
-          content="Get in touch with Rohit Upadhyay. Send a message, subscribe to newsletter, or connect on social media."
-        />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://www.rohitupadhyay.me/contact"
-        />
+        <meta property="og:url" content="https://www.rohitupadhyay.me/contact" />
         <link rel="canonical" href="https://www.rohitupadhyay.me/contact" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black py-12 px-6">
+      <section className="py-12 md:py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl font-bold text-center text-gold mb-12">
-            Contact
-          </h1>
+          <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible" className="text-center mb-12">
+            <p className="text-gold text-sm font-medium tracking-[0.3em] uppercase mb-2">Let's Connect</p>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-navy mb-4">Contact</h1>
+            <div className="section-divider max-w-xs mx-auto" />
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="bg-white/5 backdrop-blur-md rounded-lg shadow-xl p-8">
-              <h2 className="text-3xl font-semibold text-gold mb-6">
-                Send a Message
-              </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-gold mb-2">Name</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:border-gold outline-none"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    disabled={loading}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gold mb-2">Email</label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:border-gold outline-none"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    disabled={loading}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gold mb-2">Subject</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:border-gold outline-none"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                    disabled={loading}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gold mb-2">Message</label>
-                  <textarea
-                    required
-                    rows={5}
-                    className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:border-gold outline-none resize-none"
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    disabled={loading}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className={`w-full py-3 rounded-lg transition-colors ${
-                    loading
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-gold text-gray-900 hover:bg-opacity-90"
-                  }`}
-                >
-                  {loading ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-
-              {success && (
-                <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
-                  Message sent successfully!
-                </div>
-              )}
-
-              {error && (
-                <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-                  {error}
-                </div>
-              )}
-            </div>
-
-            <div className="space-y-8">
-              <div className="bg-white/5 backdrop-blur-md rounded-lg shadow-xl p-8">
-                <h2 className="text-3xl font-semibold text-gold mb-4">
-                  Connect
-                </h2>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://twitter.com/rohit5upadhyay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-white transition-colors"
-                  >
-                    <FaTwitter size={24} />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/rohit5upadhyay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-white transition-colors"
-                  >
-                    <FaLinkedin size={24} />
-                  </a>
-                  <a
-                    href="https://instagram.com/authorhandle"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-white transition-colors"
-                  >
-                    <FaInstagram size={24} />
-                  </a>
-                  <a
-                    href="https://www.facebook.com/yourprofile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gold hover:text-white transition-colors"
-                  >
-                    <FaFacebook size={24} />
-                  </a>
-                  <a
-                    href="mailto:upadhyayr8171@gmail.com.com"
-                    className="text-gold hover:text-white transition-colors"
-                  >
-                    <FaEnvelope size={24} />
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-md rounded-lg shadow-xl p-8">
-                <h2 className="text-3xl font-semibold text-gold mb-4">
-                  <FaMapMarkerAlt className="inline-block mr-2" />
-                  Location
-                </h2>
-                <p className="text-gray-400">
-                  Dwarka Sector 14, Bharat Vihar <br />
-                  Som Bazar Road
-                  <br />
-                  New Delhi, Delhi - 110078, India
-                </p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-md rounded-lg shadow-xl p-8">
-                <h2 className="text-3xl font-semibold text-gold mb-4">
-                  Subscribe to my Newsletter
-                </h2>
-                <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email"
-                    className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:border-gold outline-none"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    disabled={isSubscribing}
-                  />
+          <div className="grid md:grid-cols-2 gap-10 mb-16">
+            {/* Contact Form */}
+            <motion.div custom={1} variants={fadeUp} initial="hidden" animate="visible">
+              <div className="glass-card rounded-2xl p-8 h-full">
+                <h2 className="font-serif text-2xl font-semibold text-navy mb-6">Send a Message</h2>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {[
+                    { label: "Name", type: "text", key: "name" as const },
+                    { label: "Email", type: "email", key: "email" as const },
+                    { label: "Subject", type: "text", key: "subject" as const },
+                  ].map(({ label, type, key }) => (
+                    <div key={key}>
+                      <label className="block text-navy text-sm mb-2 font-medium">{label}</label>
+                      <input
+                        type={type} required
+                        className="w-full px-4 py-3 bg-ivory-warm text-navy border border-navy/10 rounded-xl
+                                 focus:border-gold focus:ring-2 focus:ring-gold/20 focus:outline-none transition-all duration-200
+                                 placeholder-slate/40"
+                        value={formData[key]}
+                        onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
+                        disabled={loading}
+                      />
+                    </div>
+                  ))}
+                  <div>
+                    <label className="block text-navy text-sm mb-2 font-medium">Message</label>
+                    <textarea
+                      required rows={5}
+                      className="w-full px-4 py-3 bg-ivory-warm text-navy border border-navy/10 rounded-xl
+                               focus:border-gold focus:ring-2 focus:ring-gold/20 focus:outline-none transition-all duration-200
+                               placeholder-slate/40 resize-none"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      disabled={loading}
+                    />
+                  </div>
                   <button
-                    type="submit"
-                    className={`w-full py-3 bg-gold text-gray-900 rounded-lg hover:bg-opacity-90 transition-colors ${
-                      isSubscribing ? "opacity-50 cursor-not-allowed" : ""
-                    }`}
-                    disabled={isSubscribing}
+                    type="submit" disabled={loading}
+                    className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${loading ? "bg-ivory-dark text-slate cursor-not-allowed" : "bg-navy text-white hover:bg-navy-light hover:shadow-lg"
+                      }`}
                   >
-                    {isSubscribing ? "Subscribing..." : "Subscribe"}
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
                 </form>
-
-                {newsletterSuccess && (
-                  <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
-                    Subscribed successfully!
-                  </div>
-                )}
-
-                {newsletterError && (
-                  <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-                    {newsletterError}
-                  </div>
-                )}
+                {success && <div className="mt-4 p-4 bg-emerald-50 text-emerald-700 rounded-xl border border-emerald-200 text-sm">Message sent successfully!</div>}
+                {error && <div className="mt-4 p-4 bg-red-50 text-red-600 rounded-xl border border-red-200 text-sm">{error}</div>}
               </div>
+            </motion.div>
+
+            {/* Right Column */}
+            <div className="space-y-6">
+              <motion.div custom={2} variants={fadeUp} initial="hidden" animate="visible">
+                <div className="glass-card rounded-2xl p-8">
+                  <h2 className="font-serif text-2xl font-semibold text-navy mb-5">Connect</h2>
+                  <div className="flex gap-3">
+                    {[
+                      { icon: FaTwitter, href: "https://twitter.com/rohit5upadhyay", label: "Twitter" },
+                      { icon: FaLinkedin, href: "https://linkedin.com/in/rohit5upadhyay", label: "LinkedIn" },
+                      { icon: FaInstagram, href: "https://instagram.com/authorhandle", label: "Instagram" },
+                      { icon: FaFacebook, href: "https://www.facebook.com/yourprofile", label: "Facebook" },
+                      { icon: FaEnvelope, href: "mailto:upadhyayr8171@gmail.com", label: "Email" },
+                    ].map(({ icon: Icon, href, label }) => (
+                      <a
+                        key={label} href={href}
+                        target={href.startsWith("mailto") ? undefined : "_blank"}
+                        rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                        className="w-11 h-11 rounded-xl bg-ivory-warm border border-navy/8 flex items-center justify-center
+                                 text-slate hover:text-gold hover:border-gold/30 hover:bg-gold-50 transition-all duration-300"
+                        aria-label={label}
+                      >
+                        <Icon size={18} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible">
+                <div className="glass-card rounded-2xl p-8">
+                  <h2 className="font-serif text-2xl font-semibold text-navy mb-4">
+                    <FaMapMarkerAlt className="inline-block mr-2 text-lg text-gold" />Location
+                  </h2>
+                  <p className="text-slate leading-relaxed text-sm">
+                    Dwarka Sector 14, Bharat Vihar<br />Som Bazar Road<br />New Delhi, Delhi - 110078, India
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible">
+                <div className="glass-card rounded-2xl p-8">
+                  <h2 className="font-serif text-2xl font-semibold text-navy mb-4">Subscribe to Newsletter</h2>
+                  <p className="text-slate text-sm mb-4">Get exclusive stories and updates delivered to your inbox.</p>
+                  <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                    <input
+                      type="email" required placeholder="Your email address"
+                      className="w-full px-4 py-3 bg-ivory-warm text-navy border border-navy/10 rounded-xl
+                               focus:border-gold focus:ring-2 focus:ring-gold/20 focus:outline-none transition-all duration-200
+                               placeholder-slate/40 text-sm"
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      disabled={isSubscribing}
+                    />
+                    <button
+                      type="submit" disabled={isSubscribing}
+                      className={`w-full py-3 bg-gradient-to-r from-gold to-gold-dark text-white font-semibold rounded-xl text-sm
+                                hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 ${isSubscribing ? "opacity-50 cursor-not-allowed" : ""}`}
+                    >
+                      {isSubscribing ? "Subscribing..." : "Subscribe"}
+                    </button>
+                  </form>
+                  {newsletterSuccess && <div className="mt-3 p-3 bg-emerald-50 text-emerald-700 rounded-xl border border-emerald-200 text-sm">Subscribed successfully!</div>}
+                  {newsletterError && <div className="mt-3 p-3 bg-red-50 text-red-600 rounded-xl border border-red-200 text-sm">{newsletterError}</div>}
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

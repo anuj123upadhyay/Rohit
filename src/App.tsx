@@ -53,7 +53,7 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="font-sans min-h-screen bg-[#000]">
+        <div className="font-sans min-h-screen bg-ivory">
           <Routes>
             {/* Public auth routes */}
             <Route path="/login" element={<Login />} />
@@ -72,8 +72,8 @@ function App() {
 
               {/* Protected blog routes */}
               {/* <Route element={<ProtectedRoute />}> */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
               {/* </Route> */}
 
               {/* Admin-only blog actions */}

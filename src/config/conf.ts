@@ -1,3 +1,5 @@
+// import { app } from "../firebase";
+
 // conf.ts
 const conf = {
     appwriteEndpoint: String(import.meta.env.VITE_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1'),
@@ -15,6 +17,16 @@ const conf = {
     appwriteNewsletterFunctionId: String(import.meta.env.VITE_APPWRITE_WELCOME_NEWSLETTER_FUNCTION_ID),
     appwriteNewsletterCollectionId: String(import.meta.env.VITE_APPWRITE_NEWSLETTER_COLLECTION_ID),
     appwriteApiKey: String(import.meta.env.VITE_APPWRITE_API_KEY),
+    appwriteNotificationCollectionId:String(import.meta.env.VITE_APPWRITE_NOTIFICATION_COLLECTION_ID),
+    
+    // appwriteFirebaseVapIdKey: String(import.meta.env.VITE_FIREBASE_VAPID_KEY),
+    // appwriteFirebaseApiKey: String(import.meta.env.VITE_FIREBASE_APIKEY),
+    // appwriteFirebaseAuthDomian: String(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN),
+    // appwriteFirebaseAppId: String(import.meta.env.VITE_FIREBASE_APP_ID),
+    // appwriteFirebaseProjectId: String(import.meta.env.VITE_FIREBASE_PROJECT_ID),
+    // appwriteFirebaseStorageBucket: String(import.meta.env.VITE_FIREBASE_STORAGEBUCKET_ID),
+    // appwriteFirebaseMessangingSenderId: String(import.meta.env.VITE_FIREBASE_MESSAGINGSENDER_ID),
+    // appwriteFirebaseMeasurementId: String(import.meta.env.VITE_FIREBASE_MEASUREMENT_ID),
 };
 
 // Validation
