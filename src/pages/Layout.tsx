@@ -5,7 +5,7 @@ import { useAuth } from "../appwrite/auth";
 import { useNewsletter } from "../hooks/useNewsletter";
 import { toast, Toaster } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const BANNER_MAPPING: Record<string, string> = {
