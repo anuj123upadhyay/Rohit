@@ -15,6 +15,8 @@
     "@types/nodemailer": "^6.4.17",
     "@vercel/analytics": "^1.4.1",
     "appwrite": "^16.1.0",
+    "firebase": "^11.2.0",
+    "firebase-admin": "^13.0.2",
     "framer-motion": "^11.15.0",
     "lodash.debounce": "^4.0.8",
     "nodemailer": "^6.9.16",
