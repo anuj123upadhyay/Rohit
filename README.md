@@ -1,5 +1,5 @@
 
-# Rohit Upadhyay's Personal [Website](https://www.rohitupadhyay.me/)
+# Rohit Upadhyay's Personal [Website](https://rohit.upadhyayji.me/)
 
 Welcome to the personal website of Rohit Upadhyay, built with React, TypeScript, and Vite. This project showcases Rohit's portfolio, blog, and contact information.
 

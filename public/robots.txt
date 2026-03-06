@@ -1,41 +1,70 @@
-# robots.txt for rohitupadhyay.com
+# robots.txt for rohit.upadhyayji.me
 
-# Allow all good bots
+# ==============================================================
+# General rules — allow all crawlers to index public content
+# ==============================================================
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /blog
 Allow: /blog/
+Allow: /books
 Allow: /books/
-Allow: /about/
-Allow: /contact/
+Allow: /contact
+Allow: /pictures
 
-# Block sensitive areas
-Disallow: /admin/
+# Block authentication and admin routes
+Disallow: /login
 Disallow: /login/
+Disallow: /signup
 Disallow: /signup/
+Disallow: /logout
+Disallow: /logout/
+Disallow: /forgot-password
+Disallow: /forgot-password/
+Disallow: /reset-password
+Disallow: /reset-password/
+Disallow: /verify-email
+Disallow: /verify-email/
+Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /api/
 Disallow: /private/
-Disallow: /*.json$
-Disallow: /*.php$
-Disallow: /*?*
 
-# Specific rules for major search engines
+# ==============================================================
+# Allow major search engines with no crawl delays
+# ==============================================================
 User-agent: Googlebot
-Crawl-delay: 1
-Allow: /blog/*.html
-Allow: /books/*.html
+Allow: /
+Allow: /blog/
+Allow: /books/
+Allow: /pictures
 
 User-agent: Bingbot
-Crawl-delay: 1
-Allow: /blog/*.html
-Allow: /books/*.html
+Allow: /
+Allow: /blog/
+Allow: /books/
+Allow: /pictures
 
+# ==============================================================
 # Block AI training bots
+# ==============================================================
 User-agent: GPTBot
 Disallow: /
 
 User-agent: ChatGPT-User
 Disallow: /
 
-# Sitemaps
-Sitemap: https://www.rohitupadhyay.com/sitemap.xml
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# ==============================================================
+# Sitemap
+# ==============================================================
+Sitemap: https://rohit.upadhyayji.me/sitemap.xml

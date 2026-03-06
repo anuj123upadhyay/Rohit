@@ -80,12 +80,36 @@ function Pictures() {
   return (
     <>
       <Helmet>
-        <title>Story Board - Rohit Upadhyay</title>
-        <meta name="description" content="Explore the collection of Rohit Upadhyay." />
-        <meta property="og:title" content="Story Board - Rohit Upadhyay" />
+        <title>Story Board — Photo Gallery by Rohit Upadhyay | Visual Narratives</title>
+        <meta name="description" content="Explore Rohit Upadhyay's visual story board — a curated photo gallery of moments, memories, and visual narratives from the life and journey of the Indian author and storyteller." />
+        <meta name="keywords" content="Rohit Upadhyay gallery, author photo gallery, visual narratives, story board, Rohit Upadhyay pictures, Indian author photos, storyteller images" />
+        <link rel="canonical" href="https://rohit.upadhyayji.me/pictures" />
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.rohitupadhyay.me/pictures" />
-        <link rel="canonical" href="https://www.rohitupadhyay.me/pictures" />
+        <meta property="og:url" content="https://rohit.upadhyayji.me/pictures" />
+        <meta property="og:title" content="Story Board — Photo Gallery by Rohit Upadhyay" />
+        <meta property="og:description" content="A curated visual story board — moments and memories from the life and journey of Indian author Rohit Upadhyay." />
+        <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        <meta property="og:site_name" content="Rohit Upadhyay" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:title" content="Story Board — Photo Gallery by Rohit Upadhyay" />
+        <meta name="twitter:description" content="Curated photo gallery from Indian author Rohit Upadhyay's life and journey." />
+        <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        {/* Structured Data — ImageGallery */}
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          "name": "Rohit Upadhyay — Story Board",
+          "url": "https://rohit.upadhyayji.me/pictures",
+          "description": "Visual narratives and photo gallery from the life of Indian author Rohit Upadhyay.",
+          "author": {
+            "@type": "Person",
+            "name": "Rohit Upadhyay",
+            "url": "https://rohit.upadhyayji.me"
+          }
+        }`}</script>
       </Helmet>
 
       <section className="py-12 md:py-16 px-6">
@@ -116,8 +140,8 @@ function Pictures() {
               {categories.map((cat) => (
                 <button key={cat} onClick={() => setActiveCategory(cat)}
                   className={`px-5 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${activeCategory === cat
-                      ? "bg-navy text-white shadow-md"
-                      : "text-slate hover:text-navy hover:bg-ivory-warm"
+                    ? "bg-navy text-white shadow-md"
+                    : "text-slate hover:text-navy hover:bg-ivory-warm"
                     }`}
                 >
                   {cat}

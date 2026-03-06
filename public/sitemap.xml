@@ -4,44 +4,53 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+  <!-- Homepage — highest priority -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/</loc>
+    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-  <loc>https://www.rohitupadhyay.me/</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
+  <!-- Blog index — frequently updated, very high priority -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/blog</loc>
+    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-<url>
-  <loc>https://www.rohitupadhyay.me/about</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
+  <!-- Books — core content page -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/books</loc>
+    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<url>
-  <loc>https://www.rohitupadhyay.me/blog</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
+  <!-- About — author identity page -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/about</loc>
+    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<url>
-  <loc>https://www.rohitupadhyay.me/contact</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
+  <!-- Contact — discovery and engagement -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/contact</loc>
+    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<url>
-  <loc>https://www.rohitupadhyay.me/pictures</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
-
-<url>
-  <loc>https://www.rohitupadhyay.me/books</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
-
-
-
-<url>
-  <loc>https://www.rohitupadhyay.me/login</loc>
-  <lastmod>2025-01-10T16:26:17+00:00</lastmod>
-</url>
+  <!-- Pictures — visual gallery -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/pictures</loc>
+    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>

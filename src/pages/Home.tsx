@@ -15,14 +15,60 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Rohit Upadhyay — Author, Storyteller, Academician</title>
-        <meta name="description" content="Welcome to Rohit Upadhyay's official website. Explore books, blogs, and insights from an emerging author and storyteller." />
-        <meta name="keywords" content="rohit upadhyay, author, writer, storyteller, books, blog" />
-        <meta property="og:title" content="Home - Rohit Upadhyay" />
-        <meta property="og:description" content="Welcome to Rohit Upadhyay's official website." />
+        <title>Rohit Upadhyay — Author, Storyteller & Creative  Writer | Official Website</title>
+        <meta name="description" content="Official website of Rohit Upadhyay — Indian author, storyteller, and MBA graduate writing books that inspire personal growth, healing, and transformation. Explore blogs and books." />
+        <meta name="keywords" content="Rohit Upadhyay, Indian author, motivational writer, storyteller, books by Rohit Upadhyay, aspiring author India, MBA author, personal growth books, inspirational writer New Delhi" />
+        <link rel="canonical" href="https://rohit.upadhyayji.me/" />
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.rohitupadhyay.me" />
-        <link rel="canonical" href="https://www.rohitupadhyay.me" />
+        <meta property="og:url" content="https://rohit.upadhyayji.me/" />
+        <meta property="og:title" content="Rohit Upadhyay — Author, Storyteller & Motivational Writer" />
+        <meta property="og:description" content="Official website of Rohit Upadhyay — Indian author and storyteller. Explore books and blogs that inspire healing, growth, and transformation." />
+        <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        <meta property="og:image:alt" content="Rohit Upadhyay — Author and Storyteller" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="Rohit Upadhyay" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:title" content="Rohit Upadhyay — Author, Storyteller & Motivational Writer" />
+        <meta name="twitter:description" content="Official website of Rohit Upadhyay — Indian author and storyteller. Explore books and blogs." />
+        <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        {/* Structured Data — Person + WebSite */}
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://rohit.upadhyayji.me/#person",
+              "name": "Rohit Upadhyay",
+              "url": "https://rohit.upadhyayji.me",
+              "image": "https://rohit.upadhyayji.me/rohit.webp",
+              "description": "Indian author, storyteller, and MBA graduate writing books that inspire personal growth, healing, and transformation.",
+              "jobTitle": "Author and Storyteller",
+              "nationality": "Indian",
+              "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
+              "sameAs": [
+                "https://twitter.com/rohit5upadhyay",
+                "https://linkedin.com/in/rohit5upadhyay",
+                "https://instagram.com/authorhandle"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://rohit.upadhyayji.me/#website",
+              "name": "Rohit Upadhyay",
+              "url": "https://rohit.upadhyayji.me",
+              "description": "Official website of author Rohit Upadhyay",
+              "publisher": { "@id": "https://rohit.upadhyayji.me/#person" },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://rohit.upadhyayji.me/blog?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }
+          ]
+        }`}</script>
       </Helmet>
 
       <section className="relative py-12 md:py-20 px-6 bg-texture">
@@ -54,7 +100,7 @@ function Home() {
                   />
                 </div>
 
-                
+
               </div>
             </motion.div>
 
@@ -90,7 +136,7 @@ function Home() {
                 </p>
               </motion.div>
 
-             
+
 
               {/* Quote */}
               <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible">
