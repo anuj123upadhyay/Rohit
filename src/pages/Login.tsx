@@ -45,8 +45,8 @@ function Login() {
         <meta name="description" content="Login to your account on Rohit Upadhyay's website." />
         <meta property="og:title" content="Login - Rohit Upadhyay" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.rohitupadhyay.me/login" />
-        <link rel="canonical" href="https://www.rohitupadhyay.me/login" />
+        <meta property="og:url" content="https://rohit.upadhyayji.me/login" />
+        <link rel="canonical" href="https://rohit.upadhyayji.me/login" />
       </Helmet>
 
       <div className="min-h-screen bg-ivory flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -135,8 +135,8 @@ function Login() {
                   type="submit"
                   disabled={isLoading}
                   className={`w-full flex justify-center items-center py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200 ${isLoading
-                      ? "bg-navy/40 text-white cursor-not-allowed"
-                      : "bg-navy text-white hover:bg-navy-light hover:shadow-lg hover:shadow-navy/10"
+                    ? "bg-navy/40 text-white cursor-not-allowed"
+                    : "bg-navy text-white hover:bg-navy-light hover:shadow-lg hover:shadow-navy/10"
                     }`}
                 >
                   {isLoading ? (

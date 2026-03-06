@@ -74,12 +74,36 @@ function Books() {
   return (
     <>
       <Helmet>
-        <title>Books - Rohit Upadhyay</title>
-        <meta name="description" content="Explore books written by Rohit Upadhyay." />
-        <meta property="og:title" content="Books - Rohit Upadhyay" />
+        <title>Books by Rohit Upadhyay — Buy Motivational & Inspirational Books Online</title>
+        <meta name="description" content="Browse and buy books written by Rohit Upadhyay — Indian author of motivational and inspirational books on personal growth, healing, and transformation. Available online." />
+        <meta name="keywords" content="Rohit Upadhyay books, buy Indian author books, motivational books India, inspirational books online, personal growth books, Rohit Upadhyay author books, books on healing" />
+        <link rel="canonical" href="https://rohit.upadhyayji.me/books" />
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.rohitupadhyay.me/books" />
-        <link rel="canonical" href="https://www.rohitupadhyay.me/books" />
+        <meta property="og:url" content="https://rohit.upadhyayji.me/books" />
+        <meta property="og:title" content="Books by Rohit Upadhyay — Motivational & Inspirational Books" />
+        <meta property="og:description" content="Browse books by Indian author Rohit Upadhyay on personal growth, healing, and transformation. Buy online." />
+        <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        <meta property="og:site_name" content="Rohit Upadhyay" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:title" content="Books by Rohit Upadhyay — Motivational & Inspirational Books" />
+        <meta name="twitter:description" content="Browse and buy books by Indian author Rohit Upadhyay on personal growth and healing." />
+        <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        {/* Structured Data — BookStore */}
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Books by Rohit Upadhyay",
+          "url": "https://rohit.upadhyayji.me/books",
+          "description": "A collection of motivational and inspirational books written by Indian author Rohit Upadhyay.",
+          "author": {
+            "@type": "Person",
+            "name": "Rohit Upadhyay",
+            "url": "https://rohit.upadhyayji.me"
+          }
+        }`}</script>
       </Helmet>
 
       <section className="py-12 md:py-16 px-4 sm:px-6">
@@ -114,8 +138,8 @@ function Books() {
               {categories.map((cat) => (
                 <button key={cat} onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-lg transition-all duration-200 text-sm ${selectedCategory === cat
-                      ? "bg-navy text-white font-medium shadow-md"
-                      : "bg-white text-slate hover:text-navy hover:bg-ivory-warm border border-navy/5"
+                    ? "bg-navy text-white font-medium shadow-md"
+                    : "bg-white text-slate hover:text-navy hover:bg-ivory-warm border border-navy/5"
                     }`}
                 >
                   {cat}

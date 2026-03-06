@@ -15,13 +15,42 @@ const About: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>About - Rohit Upadhyay</title>
-        <meta name="description" content="Learn about Rohit Upadhyay - storyteller, writer, and MBA graduate." />
-        <meta name="keywords" content="about rohit upadhyay, author biography, writer, storyteller" />
-        <meta property="og:title" content="About - Rohit Upadhyay" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.rohitupadhyay.me/about" />
-        <link rel="canonical" href="https://www.rohitupadhyay.me/about" />
+        <title>About Rohit Upadhyay — Indian Author, Storyteller & MBA Graduate</title>
+        <meta name="description" content="Learn about Rohit Upadhyay — an Indian author, storyteller, and MBA graduate from New Delhi. Discover his journey from corporate health management to creative writing and books." />
+        <meta name="keywords" content="about Rohit Upadhyay, Indian author biography, Rohit Upadhyay writer, storyteller New Delhi, MBA author India, author personal journey, creative writing" />
+        <link rel="canonical" href="https://rohit.upadhyayji.me/about" />
+        {/* Open Graph */}
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://rohit.upadhyayji.me/about" />
+        <meta property="og:title" content="About Rohit Upadhyay — Indian Author & Storyteller" />
+        <meta property="og:description" content="Discover Rohit Upadhyay's journey from corporate health management to storytelling and creative writing. An MBA graduate turned author from New Delhi." />
+        <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        <meta property="og:image:alt" content="Rohit Upadhyay — Author" />
+        <meta property="og:site_name" content="Rohit Upadhyay" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:title" content="About Rohit Upadhyay — Indian Author & Storyteller" />
+        <meta name="twitter:description" content="From corporate health management to storytelling — discover Rohit Upadhyay's creative journey." />
+        <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
+        {/* Structured Data — Person */}
+        <script type="application/ld+json">{`{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "@id": "https://rohit.upadhyayji.me/#person",
+          "name": "Rohit Upadhyay",
+          "url": "https://rohit.upadhyayji.me/about",
+          "image": "https://rohit.upadhyayji.me/rohit.webp",
+          "description": "Indian author, storyteller, and MBA graduate in Health Management. Writer of motivational books and blogs focused on healing, growth, and transformation.",
+          "jobTitle": "Author and Storyteller",
+          "nationality": "Indian",
+          "alumniOf": { "@type": "CollegeOrUniversity", "name": "MBA in Health Management" },
+          "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressRegion": "Delhi", "addressCountry": "IN" },
+          "sameAs": [
+            "https://twitter.com/rohit5upadhyay",
+            "https://linkedin.com/in/rohit5upadhyay"
+          ]
+        }`}</script>
       </Helmet>
 
       <section className="py-16 md:py-24 px-6 bg-texture">

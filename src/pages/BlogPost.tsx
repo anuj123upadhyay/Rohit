@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaWhatsapp, FaTwitter, FaLinkedinIn, FaHeart } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 import { databases } from '../appwrite/appwriteConfig';
 import { useAuth } from '../appwrite/auth';
 import conf from '../config/conf';
@@ -132,6 +133,54 @@ function BlogPost() {
 
   return (
     <section className="relative py-12 px-6 overflow-hidden">
+      <Helmet>
+        <title>{post.title} | Rohit Upadhyay — Blog</title>
+        <meta name="description" content={post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '...' : post.excerpt} />
+        <meta name="keywords" content={`${post.title}, Rohit Upadhyay blog, ${post.category.join(', ')}, Indian author, motivational writing`} />
+        <link rel="canonical" href={`https://rohit.upadhyayji.me/blog/${post.id}`} />
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://rohit.upadhyayji.me/blog/${post.id}`} />
+        <meta property="og:title" content={`${post.title} | Rohit Upadhyay`} />
+        <meta property="og:description" content={post.excerpt.slice(0, 200)} />
+        <meta property="og:image" content={post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp'} />
+        <meta property="og:image:alt" content={post.title} />
+        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="article:published_time" content={new Date(post.date).toISOString()} />
+        <meta property="article:author" content="Rohit Upadhyay" />
+        {post.category.map(cat => (
+          <meta key={cat} property="article:tag" content={cat} />
+        ))}
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:title" content={`${post.title} | Rohit Upadhyay`} />
+        <meta name="twitter:description" content={post.excerpt.slice(0, 200)} />
+        <meta name="twitter:image" content={post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp'} />
+        {/* Structured Data — Article */}
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: post.title,
+          description: post.excerpt.slice(0, 200),
+          image: post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp',
+          datePublished: new Date(post.date).toISOString(),
+          dateModified: new Date(post.date).toISOString(),
+          author: {
+            '@type': 'Person',
+            name: 'Rohit Upadhyay',
+            url: 'https://rohit.upadhyayji.me',
+          },
+          publisher: {
+            '@type': 'Person',
+            name: 'Rohit Upadhyay',
+            logo: { '@type': 'ImageObject', url: 'https://rohit.upadhyayji.me/favicon.webp' },
+          },
+          mainEntityOfPage: { '@type': 'WebPage', '@id': `https://rohit.upadhyayji.me/blog/${post.id}` },
+          keywords: post.category.join(', '),
+          url: `https://rohit.upadhyayji.me/blog/${post.id}`,
+        })}</script>
+      </Helmet>
       <div className="pointer-events-none absolute inset-0 flex justify-center items-center">
         <span className="text-center text-navy/[0.02] text-6xl md:text-9xl font-serif font-bold tracking-widest rotate-[-30deg]">
           Rohit Upadhyay
@@ -173,8 +222,8 @@ function BlogPost() {
                 onClick={handleLike}
                 disabled={isLikeLoading || isLiked}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-sm flex-shrink-0 ${isLiked
-                    ? 'bg-red-50 text-red-500 border border-red-100 cursor-default'
-                    : 'bg-ivory-warm text-slate border border-navy/10 hover:bg-red-50 hover:text-red-500 hover:border-red-100'
+                  ? 'bg-red-50 text-red-500 border border-red-100 cursor-default'
+                  : 'bg-ivory-warm text-slate border border-navy/10 hover:bg-red-50 hover:text-red-500 hover:border-red-100'
                   }`}
               >
                 <FaHeart className={isLiked ? 'animate-bounce' : ''} />
