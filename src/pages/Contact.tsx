@@ -70,42 +70,77 @@ function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Rohit Upadhyay — Reach Indian Author & Storyteller</title>
-        <meta name="description" content="Get in touch with Rohit Upadhyay — Indian author and storyteller based in New Delhi. Send a message, collaborate, or subscribe to his newsletter for stories and updates." />
-        <meta name="keywords" content="contact Rohit Upadhyay, Rohit Upadhyay email, reach Indian author, author New Delhi contact, collaborate with author, Rohit Upadhyay newsletter" />
+        <title>Contact Rohit Upadhyay — Reach Indian Author & Storyteller | Get in Touch</title>
+        <meta name="title" content="Contact Rohit Upadhyay — Reach Indian Author & Storyteller | Get in Touch" />
+        <meta name="description" content="Get in touch with Rohit Upadhyay — Indian author, storyteller, and poet based in New Delhi. Send a message, collaborate on projects, or subscribe to his newsletter for exclusive stories and updates." />
+        <meta name="keywords" content="contact Rohit Upadhyay, Rohit Upadhyay email, reach Rohit Upadhyay, Indian author contact, author New Delhi contact, collaborate with Rohit Upadhyay, Rohit Upadhyay newsletter, message Rohit Upadhyay" />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href="https://rohit.upadhyayji.me/contact" />
+        
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rohit.upadhyayji.me/contact" />
         <meta property="og:title" content="Contact Rohit Upadhyay — Indian Author & Storyteller" />
         <meta property="og:description" content="Reach out to Indian author Rohit Upadhyay. Subscribe to his newsletter for exclusive stories and updates." />
         <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content="Contact Rohit Upadhyay — Indian Author" />
         <meta name="twitter:description" content="Reach out to Indian author Rohit Upadhyay or subscribe to his newsletter." />
-        {/* Structured Data — ContactPage */}
+        
+        {/* Structured Data — ContactPage + BreadcrumbList */}
         <script type="application/ld+json">{`{
           "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Contact Rohit Upadhyay",
-          "url": "https://rohit.upadhyayji.me/contact",
-          "description": "Contact page for author Rohit Upadhyay. Send a message or subscribe to newsletter.",
-          "author": {
-            "@type": "Person",
-            "name": "Rohit Upadhyay",
-            "email": "upadhyayr8171@gmail.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Dwarka Sector 14, Bharat Vihar, Som Bazar Road",
-              "addressLocality": "New Delhi",
-              "addressRegion": "Delhi",
-              "postalCode": "110078",
-              "addressCountry": "IN"
+          "@graph": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://rohit.upadhyayji.me/contact#contactpage",
+              "name": "Contact Rohit Upadhyay",
+              "url": "https://rohit.upadhyayji.me/contact",
+              "description": "Contact page for Indian author Rohit Upadhyay. Send a message, collaborate, or subscribe to newsletter.",
+              "isPartOf": { "@id": "https://rohit.upadhyayji.me/#website" },
+              "about": { "@id": "https://rohit.upadhyayji.me/#author" },
+              "mainEntity": {
+                "@type": "Person",
+                "@id": "https://rohit.upadhyayji.me/#author",
+                "name": "Rohit Upadhyay",
+                "email": "upadhyayr8171@gmail.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Dwarka Sector 14, Bharat Vihar, Som Bazar Road",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "Delhi",
+                  "postalCode": "110078",
+                  "addressCountry": "IN"
+                }
+              },
+              "inLanguage": "en-IN"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rohit.upadhyayji.me/contact#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rohit.upadhyayji.me/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact",
+                  "item": "https://rohit.upadhyayji.me/contact"
+                }
+              ]
             }
-          }
+          ]
         }`}</script>
       </Helmet>
 

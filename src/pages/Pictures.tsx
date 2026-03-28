@@ -80,35 +80,70 @@ function Pictures() {
   return (
     <>
       <Helmet>
-        <title>Story Board — Photo Gallery by Rohit Upadhyay | Visual Narratives</title>
-        <meta name="description" content="Explore Rohit Upadhyay's visual story board — a curated photo gallery of moments, memories, and visual narratives from the life and journey of the Indian author and storyteller." />
-        <meta name="keywords" content="Rohit Upadhyay gallery, author photo gallery, visual narratives, story board, Rohit Upadhyay pictures, Indian author photos, storyteller images" />
+        <title>Story Board — Photo Gallery by Rohit Upadhyay | Indian Author Visual Journey</title>
+        <meta name="title" content="Story Board — Photo Gallery by Rohit Upadhyay | Indian Author Visual Journey" />
+        <meta name="description" content="Explore Rohit Upadhyay's visual story board — a curated photo gallery of moments, memories, and visual narratives from the life and creative journey of the Indian author, storyteller, and poet." />
+        <meta name="keywords" content="Rohit Upadhyay gallery, Rohit Upadhyay photos, author photo gallery, Rohit Upadhyay pictures, visual narratives, story board, Indian author photos, storyteller images, Rohit Upadhyay journey" />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href="https://rohit.upadhyayji.me/pictures" />
+        
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rohit.upadhyayji.me/pictures" />
         <meta property="og:title" content="Story Board — Photo Gallery by Rohit Upadhyay" />
         <meta property="og:description" content="A curated visual story board — moments and memories from the life and journey of Indian author Rohit Upadhyay." />
         <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content="Story Board — Photo Gallery by Rohit Upadhyay" />
         <meta name="twitter:description" content="Curated photo gallery from Indian author Rohit Upadhyay's life and journey." />
         <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        {/* Structured Data — ImageGallery */}
+        
+        {/* Structured Data — ImageGallery + BreadcrumbList */}
         <script type="application/ld+json">{`{
           "@context": "https://schema.org",
-          "@type": "ImageGallery",
-          "name": "Rohit Upadhyay — Story Board",
-          "url": "https://rohit.upadhyayji.me/pictures",
-          "description": "Visual narratives and photo gallery from the life of Indian author Rohit Upadhyay.",
-          "author": {
-            "@type": "Person",
-            "name": "Rohit Upadhyay",
-            "url": "https://rohit.upadhyayji.me"
-          }
+          "@graph": [
+            {
+              "@type": "ImageGallery",
+              "@id": "https://rohit.upadhyayji.me/pictures#gallery",
+              "name": "Rohit Upadhyay — Story Board",
+              "url": "https://rohit.upadhyayji.me/pictures",
+              "description": "Visual narratives and photo gallery from the life and creative journey of Indian author Rohit Upadhyay.",
+              "isPartOf": { "@id": "https://rohit.upadhyayji.me/#website" },
+              "about": { "@id": "https://rohit.upadhyayji.me/#author" },
+              "author": {
+                "@type": "Person",
+                "@id": "https://rohit.upadhyayji.me/#author",
+                "name": "Rohit Upadhyay",
+                "url": "https://rohit.upadhyayji.me"
+              },
+              "inLanguage": "en-IN"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rohit.upadhyayji.me/pictures#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rohit.upadhyayji.me/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Pictures",
+                  "item": "https://rohit.upadhyayji.me/pictures"
+                }
+              ]
+            }
+          ]
         }`}</script>
       </Helmet>
 

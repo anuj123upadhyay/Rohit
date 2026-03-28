@@ -2,45 +2,56 @@
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage — highest priority -->
+  <!-- Homepage — Author's main landing page, highest priority -->
   <url>
     <loc>https://rohit.upadhyayji.me/</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-28T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rohit.upadhyayji.me/rohit.webp</image:loc>
+      <image:title>Rohit Upadhyay — Indian Author and Storyteller</image:title>
+      <image:caption>Portrait of Rohit Upadhyay, Indian author, storyteller, and motivational writer from New Delhi</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page — Author biography and profile -->
+  <url>
+    <loc>https://rohit.upadhyayji.me/about</loc>
+    <lastmod>2026-03-28T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rohit.upadhyayji.me/rohit.webp</image:loc>
+      <image:title>About Rohit Upadhyay — Author Biography</image:title>
+      <image:caption>Learn about Indian author Rohit Upadhyay's journey from MBA graduate to creative writer</image:caption>
+    </image:image>
   </url>
 
   <!-- Blog index — frequently updated, very high priority -->
   <url>
     <loc>https://rohit.upadhyayji.me/blog</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-28T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Books — core content page -->
+  <!-- Books — core content page for author -->
   <url>
     <loc>https://rohit.upadhyayji.me/books</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-28T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- About — author identity page -->
-  <url>
-    <loc>https://rohit.upadhyayji.me/about</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Contact — discovery and engagement -->
+  <!-- Contact — author contact page -->
   <url>
     <loc>https://rohit.upadhyayji.me/contact</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-28T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -48,8 +59,8 @@
   <!-- Pictures — visual gallery -->
   <url>
     <loc>https://rohit.upadhyayji.me/pictures</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-03-28T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 

@@ -134,51 +134,108 @@ function BlogPost() {
   return (
     <section className="relative py-12 px-6 overflow-hidden">
       <Helmet>
-        <title>{post.title} | Rohit Upadhyay — Blog</title>
+        <title>{post.title} | Rohit Upadhyay — Indian Author Blog</title>
+        <meta name="title" content={`${post.title} | Rohit Upadhyay — Indian Author Blog`} />
         <meta name="description" content={post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '...' : post.excerpt} />
-        <meta name="keywords" content={`${post.title}, Rohit Upadhyay blog, ${post.category.join(', ')}, Indian author, motivational writing`} />
+        <meta name="keywords" content={`${post.title}, Rohit Upadhyay blog, Rohit Upadhyay article, ${post.category.join(', ')}, Indian author, motivational writing, personal growth`} />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href={`https://rohit.upadhyayji.me/blog/${post.id}`} />
+        
         {/* Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://rohit.upadhyayji.me/blog/${post.id}`} />
         <meta property="og:title" content={`${post.title} | Rohit Upadhyay`} />
         <meta property="og:description" content={post.excerpt.slice(0, 200)} />
         <meta property="og:image" content={post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp'} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={post.title} />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
         <meta property="article:published_time" content={new Date(post.date).toISOString()} />
-        <meta property="article:author" content="Rohit Upadhyay" />
+        <meta property="article:author" content="https://rohit.upadhyayji.me/about" />
+        <meta property="article:section" content={post.category[0] || 'Blog'} />
         {post.category.map(cat => (
           <meta key={cat} property="article:tag" content={cat} />
         ))}
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content={`${post.title} | Rohit Upadhyay`} />
         <meta name="twitter:description" content={post.excerpt.slice(0, 200)} />
         <meta name="twitter:image" content={post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp'} />
-        {/* Structured Data — Article */}
+        
+        {/* Structured Data — Article + BreadcrumbList */}
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: post.title,
-          description: post.excerpt.slice(0, 200),
-          image: post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp',
-          datePublished: new Date(post.date).toISOString(),
-          dateModified: new Date(post.date).toISOString(),
-          author: {
-            '@type': 'Person',
-            name: 'Rohit Upadhyay',
-            url: 'https://rohit.upadhyayji.me',
-          },
-          publisher: {
-            '@type': 'Person',
-            name: 'Rohit Upadhyay',
-            logo: { '@type': 'ImageObject', url: 'https://rohit.upadhyayji.me/favicon.webp' },
-          },
-          mainEntityOfPage: { '@type': 'WebPage', '@id': `https://rohit.upadhyayji.me/blog/${post.id}` },
-          keywords: post.category.join(', '),
-          url: `https://rohit.upadhyayji.me/blog/${post.id}`,
+          '@graph': [
+            {
+              '@type': 'Article',
+              '@id': `https://rohit.upadhyayji.me/blog/${post.id}#article`,
+              'headline': post.title,
+              'description': post.excerpt.slice(0, 200),
+              'image': {
+                '@type': 'ImageObject',
+                'url': post.imageUrl || 'https://rohit.upadhyayji.me/rohit.webp',
+                'width': 1200,
+                'height': 630
+              },
+              'datePublished': new Date(post.date).toISOString(),
+              'dateModified': new Date(post.date).toISOString(),
+              'author': {
+                '@type': 'Person',
+                '@id': 'https://rohit.upadhyayji.me/#author',
+                'name': 'Rohit Upadhyay',
+                'url': 'https://rohit.upadhyayji.me',
+                'image': 'https://rohit.upadhyayji.me/rohit.webp'
+              },
+              'publisher': {
+                '@type': 'Person',
+                '@id': 'https://rohit.upadhyayji.me/#author',
+                'name': 'Rohit Upadhyay',
+                'logo': {
+                  '@type': 'ImageObject',
+                  'url': 'https://rohit.upadhyayji.me/favicon.webp'
+                }
+              },
+              'mainEntityOfPage': {
+                '@type': 'WebPage',
+                '@id': `https://rohit.upadhyayji.me/blog/${post.id}`
+              },
+              'isPartOf': {
+                '@id': 'https://rohit.upadhyayji.me/blog#blog'
+              },
+              'keywords': post.category.join(', '),
+              'url': `https://rohit.upadhyayji.me/blog/${post.id}`,
+              'inLanguage': 'en-IN',
+              'articleSection': post.category[0] || 'Blog'
+            },
+            {
+              '@type': 'BreadcrumbList',
+              '@id': `https://rohit.upadhyayji.me/blog/${post.id}#breadcrumb`,
+              'itemListElement': [
+                {
+                  '@type': 'ListItem',
+                  'position': 1,
+                  'name': 'Home',
+                  'item': 'https://rohit.upadhyayji.me/'
+                },
+                {
+                  '@type': 'ListItem',
+                  'position': 2,
+                  'name': 'Blog',
+                  'item': 'https://rohit.upadhyayji.me/blog'
+                },
+                {
+                  '@type': 'ListItem',
+                  'position': 3,
+                  'name': post.title,
+                  'item': `https://rohit.upadhyayji.me/blog/${post.id}`
+                }
+              ]
+            }
+          ]
         })}</script>
       </Helmet>
       <div className="pointer-events-none absolute inset-0 flex justify-center items-center">

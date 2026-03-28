@@ -1,4 +1,5 @@
 # robots.txt for rohit.upadhyayji.me
+# Official website of Rohit Upadhyay — Indian Author, Storyteller & Poet
 
 # ==============================================================
 # General rules — allow all crawlers to index public content
@@ -32,22 +33,76 @@ Disallow: /api/
 Disallow: /private/
 
 # ==============================================================
-# Allow major search engines with no crawl delays
+# Google - Priority crawler for Rohit Upadhyay author pages
 # ==============================================================
 User-agent: Googlebot
 Allow: /
+Allow: /about
+Allow: /blog
 Allow: /blog/
+Allow: /books
 Allow: /books/
+Allow: /contact
 Allow: /pictures
+Crawl-delay: 1
 
-User-agent: Bingbot
+User-agent: Googlebot-Image
 Allow: /
-Allow: /blog/
-Allow: /books/
 Allow: /pictures
 
 # ==============================================================
-# Block AI training bots
+# Bing - Allow full indexing
+# ==============================================================
+User-agent: Bingbot
+Allow: /
+Allow: /about
+Allow: /blog
+Allow: /blog/
+Allow: /books
+Allow: /books/
+Allow: /contact
+Allow: /pictures
+Crawl-delay: 1
+
+# ==============================================================
+# Other major search engines
+# ==============================================================
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# ==============================================================
+# Social media crawlers - Allow for proper sharing
+# ==============================================================
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# ==============================================================
+# Block AI training bots (protect original content)
 # ==============================================================
 User-agent: GPTBot
 Disallow: /
@@ -64,7 +119,39 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
+User-agent: Bytespider
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
 # ==============================================================
-# Sitemap
+# Block bad bots and scrapers
+# ==============================================================
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ==============================================================
+# Sitemap location
 # ==============================================================
 Sitemap: https://rohit.upadhyayji.me/sitemap.xml
+
+# ==============================================================
+# Host directive (canonical domain)
+# ==============================================================
+Host: https://rohit.upadhyayji.me

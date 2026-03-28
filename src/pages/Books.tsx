@@ -74,35 +74,70 @@ function Books() {
   return (
     <>
       <Helmet>
-        <title>Books by Rohit Upadhyay — Buy Motivational & Inspirational Books Online</title>
-        <meta name="description" content="Browse and buy books written by Rohit Upadhyay — Indian author of motivational and inspirational books on personal growth, healing, and transformation. Available online." />
-        <meta name="keywords" content="Rohit Upadhyay books, buy Indian author books, motivational books India, inspirational books online, personal growth books, Rohit Upadhyay author books, books on healing" />
+        <title>Books by Rohit Upadhyay — Buy Motivational & Inspirational Books | Indian Author</title>
+        <meta name="title" content="Books by Rohit Upadhyay — Buy Motivational & Inspirational Books | Indian Author" />
+        <meta name="description" content="Browse and buy books written by Rohit Upadhyay — Indian author of motivational and inspirational books on personal growth, healing, and transformation. Available online for purchase." />
+        <meta name="keywords" content="Rohit Upadhyay books, books by Rohit Upadhyay, Rohit Upadhyay author books, buy Indian author books, motivational books India, inspirational books online, personal growth books, books on healing, Rohit Upadhyay publications, Indian author books online" />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href="https://rohit.upadhyayji.me/books" />
+        
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rohit.upadhyayji.me/books" />
         <meta property="og:title" content="Books by Rohit Upadhyay — Motivational & Inspirational Books" />
         <meta property="og:description" content="Browse books by Indian author Rohit Upadhyay on personal growth, healing, and transformation. Buy online." />
         <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content="Books by Rohit Upadhyay — Motivational & Inspirational Books" />
         <meta name="twitter:description" content="Browse and buy books by Indian author Rohit Upadhyay on personal growth and healing." />
         <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        {/* Structured Data — BookStore */}
+        
+        {/* Structured Data — CollectionPage + BreadcrumbList */}
         <script type="application/ld+json">{`{
           "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "name": "Books by Rohit Upadhyay",
-          "url": "https://rohit.upadhyayji.me/books",
-          "description": "A collection of motivational and inspirational books written by Indian author Rohit Upadhyay.",
-          "author": {
-            "@type": "Person",
-            "name": "Rohit Upadhyay",
-            "url": "https://rohit.upadhyayji.me"
-          }
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://rohit.upadhyayji.me/books#collection",
+              "name": "Books by Rohit Upadhyay",
+              "url": "https://rohit.upadhyayji.me/books",
+              "description": "A collection of motivational and inspirational books written by Indian author Rohit Upadhyay on personal growth, healing, and transformation.",
+              "isPartOf": { "@id": "https://rohit.upadhyayji.me/#website" },
+              "about": { "@id": "https://rohit.upadhyayji.me/#author" },
+              "author": {
+                "@type": "Person",
+                "@id": "https://rohit.upadhyayji.me/#author",
+                "name": "Rohit Upadhyay",
+                "url": "https://rohit.upadhyayji.me"
+              },
+              "inLanguage": "en-IN"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rohit.upadhyayji.me/books#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rohit.upadhyayji.me/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Books",
+                  "item": "https://rohit.upadhyayji.me/books"
+                }
+              ]
+            }
+          ]
         }`}</script>
       </Helmet>
 

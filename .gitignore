@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .env
 *.env
+
+src/firebase.ts
+public/firebase-messaging-sw.js
+ src/requestPermission.ts
+ public/autograph-rohit-upadhyay.mp4

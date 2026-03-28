@@ -15,40 +15,115 @@ const About: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>About Rohit Upadhyay — Indian Author, Storyteller & MBA Graduate</title>
-        <meta name="description" content="Learn about Rohit Upadhyay — an Indian author, storyteller, and MBA graduate from New Delhi. Discover his journey from corporate health management to creative writing and books." />
-        <meta name="keywords" content="about Rohit Upadhyay, Indian author biography, Rohit Upadhyay writer, storyteller New Delhi, MBA author India, author personal journey, creative writing" />
+        <title>About Rohit Upadhyay — Indian Author, Storyteller & Poet | Biography</title>
+        <meta name="title" content="About Rohit Upadhyay — Indian Author, Storyteller & Poet | Biography" />
+        <meta name="description" content="Learn about Rohit Upadhyay — an Indian author, storyteller, poet, and MBA graduate from New Delhi. Discover his journey from corporate health management to creative writing, and why he writes books on personal growth and healing." />
+        <meta name="keywords" content="about Rohit Upadhyay, Rohit Upadhyay biography, Rohit Upadhyay author bio, Indian author biography, who is Rohit Upadhyay, Rohit Upadhyay writer profile, storyteller New Delhi, MBA author India, author personal journey, creative writing journey, Rohit Upadhyay life story" />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href="https://rohit.upadhyayji.me/about" />
+        
         {/* Open Graph */}
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://rohit.upadhyayji.me/about" />
-        <meta property="og:title" content="About Rohit Upadhyay — Indian Author & Storyteller" />
+        <meta property="og:title" content="About Rohit Upadhyay — Indian Author & Storyteller | Biography" />
         <meta property="og:description" content="Discover Rohit Upadhyay's journey from corporate health management to storytelling and creative writing. An MBA graduate turned author from New Delhi." />
         <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        <meta property="og:image:alt" content="Rohit Upadhyay — Author" />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Rohit Upadhyay — Indian Author" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
+        <meta property="profile:first_name" content="Rohit" />
+        <meta property="profile:last_name" content="Upadhyay" />
+        <meta property="profile:username" content="rohit5upadhyay" />
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content="About Rohit Upadhyay — Indian Author & Storyteller" />
         <meta name="twitter:description" content="From corporate health management to storytelling — discover Rohit Upadhyay's creative journey." />
         <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        {/* Structured Data — Person */}
+        
+        {/* Structured Data — ProfilePage + Person + BreadcrumbList */}
         <script type="application/ld+json">{`{
           "@context": "https://schema.org",
-          "@type": "Person",
-          "@id": "https://rohit.upadhyayji.me/#person",
-          "name": "Rohit Upadhyay",
-          "url": "https://rohit.upadhyayji.me/about",
-          "image": "https://rohit.upadhyayji.me/rohit.webp",
-          "description": "Indian author, storyteller, and MBA graduate in Health Management. Writer of motivational books and blogs focused on healing, growth, and transformation.",
-          "jobTitle": "Author and Storyteller",
-          "nationality": "Indian",
-          "alumniOf": { "@type": "CollegeOrUniversity", "name": "MBA in Health Management" },
-          "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressRegion": "Delhi", "addressCountry": "IN" },
-          "sameAs": [
-            "https://twitter.com/rohit5upadhyay",
-            "https://linkedin.com/in/rohit5upadhyay"
+          "@graph": [
+            {
+              "@type": "ProfilePage",
+              "@id": "https://rohit.upadhyayji.me/about#profilepage",
+              "url": "https://rohit.upadhyayji.me/about",
+              "name": "About Rohit Upadhyay — Indian Author & Storyteller",
+              "description": "Biography and profile of Indian author Rohit Upadhyay",
+              "isPartOf": { "@id": "https://rohit.upadhyayji.me/#website" },
+              "mainEntity": { "@id": "https://rohit.upadhyayji.me/#author" },
+              "inLanguage": "en-IN"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://rohit.upadhyayji.me/#author",
+              "name": "Rohit Upadhyay",
+              "givenName": "Rohit",
+              "familyName": "Upadhyay",
+              "url": "https://rohit.upadhyayji.me",
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://rohit.upadhyayji.me/rohit.webp",
+                "width": 800,
+                "height": 800
+              },
+              "description": "Rohit Upadhyay is an Indian author, storyteller, poet, and MBA graduate in Health Management from New Delhi. He writes motivational books and blogs focused on healing, personal growth, and transformation.",
+              "jobTitle": "Author",
+              "nationality": {
+                "@type": "Country",
+                "name": "India"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "MBA in Health Management"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dwarka Sector 14, Bharat Vihar, Som Bazar Road",
+                "addressLocality": "New Delhi",
+                "addressRegion": "Delhi",
+                "postalCode": "110078",
+                "addressCountry": "IN"
+              },
+              "email": "upadhyayr8171@gmail.com",
+              "sameAs": [
+                "https://twitter.com/rohit5upadhyay",
+                "https://linkedin.com/in/rohit5upadhyay",
+                "https://instagram.com/rohit5upadhyay",
+                "https://facebook.com/rohit5upadhyay"
+              ],
+              "knowsAbout": ["Creative Writing", "Storytelling", "Personal Growth", "Motivation", "Poetry", "Health Management"],
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Author",
+                "occupationLocation": {
+                  "@type": "Country",
+                  "name": "India"
+                }
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rohit.upadhyayji.me/about#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rohit.upadhyayji.me/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About",
+                  "item": "https://rohit.upadhyayji.me/about"
+                }
+              ]
+            }
           ]
         }`}</script>
       </Helmet>

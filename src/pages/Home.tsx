@@ -15,57 +15,114 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Rohit Upadhyay — Author, Storyteller & Creative  Writer | Official Website</title>
-        <meta name="description" content="Official website of Rohit Upadhyay — Indian author, storyteller, and MBA graduate writing books that inspire personal growth, healing, and transformation. Explore blogs and books." />
-        <meta name="keywords" content="Rohit Upadhyay, Indian author, motivational writer, storyteller, books by Rohit Upadhyay, aspiring author India, MBA author, personal growth books, inspirational writer New Delhi" />
+        <title>Rohit Upadhyay — Author, Storyteller & Creative Writer | Official Website</title>
+        <meta name="title" content="Rohit Upadhyay — Author, Storyteller & Creative Writer | Official Website" />
+        <meta name="description" content="Welcome to the official website of Rohit Upadhyay — Indian author, storyteller, poet, and MBA graduate from New Delhi. Explore his books on personal growth, healing, and transformation, plus motivational blogs and inspiring stories." />
+        <meta name="keywords" content="Rohit Upadhyay, Rohit Upadhyay author, author Rohit Upadhyay, Indian author Rohit Upadhyay, Rohit Upadhyay books, Rohit Upadhyay writer, Rohit Upadhyay official website, motivational writer India, storyteller New Delhi, poet India, books by Rohit Upadhyay, aspiring author India, MBA author, personal growth books, inspirational writer, Indian storyteller" />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href="https://rohit.upadhyayji.me/" />
+        
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rohit.upadhyayji.me/" />
-        <meta property="og:title" content="Rohit Upadhyay — Author, Storyteller & Motivational Writer" />
-        <meta property="og:description" content="Official website of Rohit Upadhyay — Indian author and storyteller. Explore books and blogs that inspire healing, growth, and transformation." />
+        <meta property="og:title" content="Rohit Upadhyay — Author, Storyteller & Motivational Writer | Official Website" />
+        <meta property="og:description" content="Official website of Rohit Upadhyay — Indian author, storyteller, and poet. Explore books and blogs that inspire healing, growth, and transformation." />
         <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        <meta property="og:image:alt" content="Rohit Upadhyay — Author and Storyteller" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Rohit Upadhyay — Indian Author and Storyteller" />
         <meta property="og:locale" content="en_IN" />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content="Rohit Upadhyay — Author, Storyteller & Motivational Writer" />
         <meta name="twitter:description" content="Official website of Rohit Upadhyay — Indian author and storyteller. Explore books and blogs." />
         <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        {/* Structured Data — Person + WebSite */}
+        
+        {/* Structured Data — Enhanced Person + WebSite + BreadcrumbList */}
         <script type="application/ld+json">{`{
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Person",
-              "@id": "https://rohit.upadhyayji.me/#person",
+              "@id": "https://rohit.upadhyayji.me/#author",
               "name": "Rohit Upadhyay",
+              "givenName": "Rohit",
+              "familyName": "Upadhyay",
               "url": "https://rohit.upadhyayji.me",
-              "image": "https://rohit.upadhyayji.me/rohit.webp",
-              "description": "Indian author, storyteller, and MBA graduate writing books that inspire personal growth, healing, and transformation.",
-              "jobTitle": "Author and Storyteller",
-              "nationality": "Indian",
-              "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://rohit.upadhyayji.me/rohit.webp",
+                "width": 800,
+                "height": 800
+              },
+              "description": "Rohit Upadhyay is an Indian author, storyteller, poet, and motivational writer from New Delhi. An MBA graduate in Health Management, he writes books and blogs on personal growth, healing, and transformation.",
+              "jobTitle": "Author",
+              "nationality": {
+                "@type": "Country",
+                "name": "India"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dwarka Sector 14, Bharat Vihar",
+                "addressLocality": "New Delhi",
+                "addressRegion": "Delhi",
+                "postalCode": "110078",
+                "addressCountry": "IN"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "MBA in Health Management"
+              },
+              "email": "upadhyayr8171@gmail.com",
               "sameAs": [
                 "https://twitter.com/rohit5upadhyay",
                 "https://linkedin.com/in/rohit5upadhyay",
-                "https://instagram.com/authorhandle"
-              ]
+                "https://instagram.com/rohit5upadhyay",
+                "https://facebook.com/rohit5upadhyay"
+              ],
+              "knowsAbout": ["Creative Writing", "Storytelling", "Personal Growth", "Motivation", "Poetry"],
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Author",
+                "occupationLocation": {
+                  "@type": "Country",
+                  "name": "India"
+                }
+              }
             },
             {
               "@type": "WebSite",
               "@id": "https://rohit.upadhyayji.me/#website",
-              "name": "Rohit Upadhyay",
+              "name": "Rohit Upadhyay - Author",
+              "alternateName": "Rohit Upadhyay Official Website",
               "url": "https://rohit.upadhyayji.me",
-              "description": "Official website of author Rohit Upadhyay",
-              "publisher": { "@id": "https://rohit.upadhyayji.me/#person" },
+              "description": "Official website of Indian author Rohit Upadhyay",
+              "publisher": { "@id": "https://rohit.upadhyayji.me/#author" },
+              "inLanguage": "en-IN",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://rohit.upadhyayji.me/blog?q={search_term_string}",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://rohit.upadhyayji.me/blog?q={search_term_string}"
+                },
                 "query-input": "required name=search_term_string"
               }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rohit.upadhyayji.me/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rohit.upadhyayji.me/"
+                }
+              ]
             }
           ]
         }`}</script>

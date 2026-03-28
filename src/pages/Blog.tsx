@@ -102,40 +102,78 @@ function Blog() {
   return (
     <>
       <Helmet>
-        <title>Blog by Rohit Upadhyay — Writings on Life, Growth & Storytelling</title>
-        <meta name="description" content="Read blog posts by Rohit Upadhyay — an Indian author writing about personal growth, healing, storytelling, motivation, and the art of creative writing. New posts regularly." />
-        <meta name="keywords" content="Rohit Upadhyay blog, author blog India, motivational blog, personal growth articles, storytelling blog, creative writing tips, healing through writing, inspirational articles" />
+        <title>Blog by Rohit Upadhyay — Articles on Life, Growth & Storytelling | Indian Author</title>
+        <meta name="title" content="Blog by Rohit Upadhyay — Articles on Life, Growth & Storytelling | Indian Author" />
+        <meta name="description" content="Read blog posts by Rohit Upadhyay — an Indian author writing about personal growth, healing, storytelling, motivation, and creative writing. New inspiring articles published regularly." />
+        <meta name="keywords" content="Rohit Upadhyay blog, blog by Rohit Upadhyay, Rohit Upadhyay articles, author blog India, motivational blog, personal growth articles, storytelling blog, creative writing tips, healing through writing, inspirational articles, Indian author blog, Rohit Upadhyay writings" />
+        <meta name="author" content="Rohit Upadhyay" />
         <link rel="canonical" href="https://rohit.upadhyayji.me/blog" />
+        
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rohit.upadhyayji.me/blog" />
         <meta property="og:title" content="Blog by Rohit Upadhyay — Writings on Life, Growth & Storytelling" />
-        <meta property="og:description" content="Explore inspiring blog posts by Rohit Upadhyay on personal growth, healing, motivation, and creative storytelling." />
+        <meta property="og:description" content="Explore inspiring blog posts by Indian author Rohit Upadhyay on personal growth, healing, motivation, and creative storytelling." />
         <meta property="og:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        <meta property="og:site_name" content="Rohit Upadhyay" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Rohit Upadhyay - Author" />
+        
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohit5upadhyay" />
+        <meta name="twitter:creator" content="@rohit5upadhyay" />
         <meta name="twitter:title" content="Blog by Rohit Upadhyay — Writings on Life & Growth" />
         <meta name="twitter:description" content="Inspiring articles on personal growth, healing, and storytelling by Indian author Rohit Upadhyay." />
         <meta name="twitter:image" content="https://rohit.upadhyayji.me/rohit.webp" />
-        {/* Structured Data — Blog */}
+        
+        {/* Structured Data — Blog + BreadcrumbList */}
         <script type="application/ld+json">{`{
           "@context": "https://schema.org",
-          "@type": "Blog",
-          "name": "Rohit Upadhyay — Blog",
-          "url": "https://rohit.upadhyayji.me/blog",
-          "description": "Blog by Rohit Upadhyay on personal growth, healing, and storytelling.",
-          "author": {
-            "@type": "Person",
-            "name": "Rohit Upadhyay",
-            "url": "https://rohit.upadhyayji.me"
-          },
-          "publisher": {
-            "@type": "Person",
-            "name": "Rohit Upadhyay",
-            "logo": { "@type": "ImageObject", "url": "https://rohit.upadhyayji.me/favicon.webp" }
-          }
+          "@graph": [
+            {
+              "@type": "Blog",
+              "@id": "https://rohit.upadhyayji.me/blog#blog",
+              "name": "Rohit Upadhyay Blog",
+              "url": "https://rohit.upadhyayji.me/blog",
+              "description": "Blog by Indian author Rohit Upadhyay featuring articles on personal growth, healing, storytelling, and motivation.",
+              "inLanguage": "en-IN",
+              "isPartOf": { "@id": "https://rohit.upadhyayji.me/#website" },
+              "author": {
+                "@type": "Person",
+                "@id": "https://rohit.upadhyayji.me/#author",
+                "name": "Rohit Upadhyay",
+                "url": "https://rohit.upadhyayji.me"
+              },
+              "publisher": {
+                "@type": "Person",
+                "@id": "https://rohit.upadhyayji.me/#author",
+                "name": "Rohit Upadhyay",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://rohit.upadhyayji.me/favicon.webp"
+                }
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rohit.upadhyayji.me/blog#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rohit.upadhyayji.me/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Blog",
+                  "item": "https://rohit.upadhyayji.me/blog"
+                }
+              ]
+            }
+          ]
         }`}</script>
       </Helmet>
 
